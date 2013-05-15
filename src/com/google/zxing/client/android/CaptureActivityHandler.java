@@ -88,9 +88,11 @@ public final class CaptureActivityHandler extends Handler {
         state = State.PREVIEW;
         cameraManager.requestPreviewFrame(decodeThread.getHandler(), R.id.decode);
     } else if (message.what == R.id.return_scan_result) {
-        Log.d(TAG, "Got return scan result message");
+        Log.d(TAG, "Got return scan result message: " + R.id.return_scan_result);
         activity.setResult(Activity.RESULT_OK, (Intent) message.obj);
+        Log.d(TAG, "aki1");
         activity.finish();
+        Log.d(TAG, "aki2");
     } else if (message.what == R.id.launch_product_query) {
         Log.d(TAG, "Got product query message");
         String url = (String) message.obj;
